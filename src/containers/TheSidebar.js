@@ -17,14 +17,16 @@ import CIcon from '@coreui/icons-react'
 // sidebar nav config
 import navigation from './_nav'
 
+import { setSidebarShow } from '../reducers/states'
+
 const TheSidebar = () => {
   const dispatch = useDispatch()
-  const show = useSelector(state => state.sidebarShow)
+  const show = useSelector(state => state.states.sidebarShow)
 
   return (
     <CSidebar
       show={show}
-      onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
+      onShowChange={(val) => dispatch(setSidebarShow(val))}
     >
       <CSidebarBrand className="d-md-down-none" to="/">
         <CIcon
